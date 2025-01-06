@@ -72,11 +72,11 @@ Dans le cadre de ce projet de Master 2 à l'ISUP, nous avons pour objectif de d�
 
 Les données utilisées dans ce projet proviennent de Kaggle, où elles ont été initialement proposées dans le cadre d’une compétition intitulée **Health Insurance Cross Sell Prediction** (https://www.kaggle.com/datasets/anmolkumar/health-insurance-cross-sell-prediction). La compétition avait pour objectif de prédire si un client existant pourrait être intéressé par une assurance véhicule, en utilisant les informations démographiques, les caractéristiques des véhicules et les détails de la police d’assurance.
 
-### Critère de notation
+## Critère de notation
 
 Le critère de performance utilisé pour cette compétition était le **score ROC_AUC** (Receiver Operating Characteristic - Area Under the Curve), une métrique largement utilisée pour évaluer les performances des modèles de classification. Ce test évalue spécifiquement la capacité du modèle à prédire correctement la variable cible **`Response`**, qui indique si un client est intéressé par l'assurance véhicule (`1`) ou non (`0`).
 
-### Contexte des données
+## Contexte des données
 
 Les données fournies ne précisent pas le pays d’origine de l’assureur ou du portefeuille étudié. Cela limite certaines interprétations concernant le contexte socio-économique ou réglementaire, mais cela ne remet pas en question l’objectif d’analyse et de modélisation. Nous supposerons donc que les informations données sont génériques et applicables à un contexte international.
 
@@ -107,7 +107,7 @@ Les données utilisées pour ce projet sont structurées comme suit :
 | **`Response`**              | <span style="color:red; font-weight:bold;">1 : Le client est intéressé, 0 : Pas d’intérêt</span> |
 
 
-## Structure des données
+## Structure des données et variable cible
 
 Le jeu de données contient deux tables principales : 
 
@@ -146,7 +146,7 @@ count_plot <- function(df, feat,title, palette = "rainbow") {
 
 ```
 
-### Target Variable
+### variable cible : Response
 
 La variable cible dans notre analyse est **`Response`**, où :
 
@@ -160,7 +160,7 @@ Ce projet est donc une **tâche de classification binaire**, où l'objectif est 
 ```{r my_plot_1, fig.path='figures/', dev='png', echo=FALSE, include=FALSE, results='hide', message=FALSE, warning=FALSE}
 count_plot(data, "Response", "Reponse du client")
 ```
-![Importance des  ](figures/my_plot_1-1.png)
+![](figures/my_plot_1-1.png)
 
 *Déséquilibre des classes*
 
@@ -182,7 +182,7 @@ Ces approches peuvent aider à améliorer la performance des modèles en réduis
 Pour notre analyse, nous examinerons l'impact de ces techniques sur les performances du modèle. En particulier, nous évaluerons si le **suréchantillonnage** ou le **sous-échantillonnage** permet d'augmenter la précision globale ou la sensibilité aux prédictions de la classe minoritaire.
 
 
-### Gender
+### Etude de la variable : Gender
 
 En analysant la variable **`Gender`**, qui représente le genre des clients, nous constatons que la distribution des données est **équilibrée**. Cela signifie que les deux catégories (hommes et femmes) sont représentées de manière à peu près égale dans le jeu de données.
 
@@ -199,7 +199,7 @@ count_plot(data, "Gender", "Répartition homme femme")
 | `Female`                    | 175 020                                                            |
 
 
-### Age Groups
+### Etude de la variable : Age
 
 L’âge des clients peut avoir une influence significative sur leur intérêt pour l’assurance véhicule. Pour mieux comprendre cette relation, nous avons regroupé les âges en classes afin d'analyser la répartition des réponses (`Response`) en fonction des tranches d'âge.
 
@@ -219,7 +219,7 @@ bins <- c(20, 30, 40, 50, 60, 70, 80, 90)
 labels <- c('20-29', '30-39', '40-49', '50-59', '60-69', '70-79', '80+')
 data$AgeClass <- cut(data$Age, breaks = bins, labels = labels, include.lowest = TRUE)
 ```
-![Importance](figures/my_plot_3-1.png)
+![](figures/my_plot_3-1.png)
 
 
 *Observations initiales*
@@ -246,12 +246,12 @@ Cette classification permet d’identifier les tendances globales tout en simpli
 ```{r my_plot_4, fig.path='figures/', dev='png', echo=FALSE, include=FALSE, results='hide', message=FALSE, warning=FALSE}
 count_plot(data, "AgeClass", "Les classes d'age des clients")
 ```
-![Importance](figures/my_plot_4-1.png)
+![](figures/my_plot_4-1.png)
 
 
 
 
-### Age vs Vehicle Damage
+### Etude de la variable : Vehicle Damage
 
 Analyser la relation entre l'âge des clients et les dommages aux véhicules peut fournir des informations utiles pour mieux comprendre les comportements des clients et leur probabilité d'intérêt pour une assurance véhicule.
 
@@ -272,7 +272,8 @@ ggplot(data, aes(x = Vehicle_Damage, y = Age, fill = Gender)) +
   scale_fill_brewer(palette = "Set2")  # Palette pour différencier les genres
 ```
 
-![Importance](figures/my_plot_5-1.png)
+![](figures/my_plot_5-1.png)
+# Prétraitement des Données
 
 ## Detection de valeurs aberrantes et manquantes
 
@@ -352,7 +353,7 @@ dim(data)
 
 ## Division en ensembles d'entraînement et de test et encodage des variables catégoriques
 
-### 1. Division en ensembles d'entraînement et de test
+### Division en ensembles d'entraînement et de test
 
 Pour entraîner et évaluer le modèle, nous divisons les données nettoyées en deux ensembles :
 
@@ -370,7 +371,7 @@ y_test=test_df$Response
 ```
 
 
-### 2.Encodage des variables catégoriques
+### Encodage des variables catégoriques
 
 Les variables catégorielles doivent être encodées pour être utilisées dans les modèles d’apprentissage automatique. Dans ce projet, nous avons appliqué l'**Ordinal Encoding**. Méthode utilisée lorsque l’ordre des catégories est important (par exemple : **"cold", "warm", "hot"**). Cela permet de représenter chaque catégorie par une valeur numérique correspondant à son rang.
 
@@ -402,7 +403,7 @@ all_test_enc  <- cbind(X_test_enc, test_df[data_nums])
 ```
 
 
-## Feature Selection
+## Sélection de variables
 
 La sélection des variables est une étape essentielle dans la construction d’un modèle d’apprentissage automatique, car elle permet de réduire la complexité, d'améliorer les performances et de diminuer le risque de surapprentissage.
 
@@ -440,7 +441,7 @@ ggplot(data_plot, aes(x = reorder(Attribute, attr_importance), y = attr_importan
 
 ```
 
-![Importance](figures/my_plot_6-1.png)
+![](figures/my_plot_6-1.png)
 
 ## Suréchantillonage avec ROSE
 
@@ -469,50 +470,6 @@ y_train_over_sampled <- oversampled_data$Response
 y_train <- y_train_over_sampled
 
 ```
-
-## Principal Component Analysis (PCA)
-
-L’analyse en composantes principales (ACP) est une méthode de réduction dimensionnelle qui permet de transformer les variables d’un jeu de données en un ensemble de composantes principales. Ces composantes principales expliquent la variance maximale des données tout en réduisant la complexité du modèle.
-
-
-*Objectif de l'ACP*
-
-L'objectif principal de cette ACP est de :
-- Visualiser les données dans un espace réduit à deux dimensions pour mieux comprendre leur distribution.
-- Identifier si les classes (`Response` = 0 et 1) sont bien séparées dans cet espace.
-- Évaluer la variance totale expliquée par les deux premières composantes principales.
-
-
-*Résultats*
-
-- Les deux premières composantes principales expliquent **40.58 % de la variance totale** des données.
-- Le graphique ci-dessous montre une séparation notable entre les classes `0` (en bleu) et `1` (en rouge) dans l’espace des deux premières composantes principales. Cela indique que les données contiennent des informations discriminantes qui peuvent être utiles pour la classification.
-
-
-```{r my_plot_7, fig.path='figures/', dev='png', echo=FALSE, include=FALSE, results='hide', message=FALSE, warning=FALSE}
-# Installer et charger les bibliothèques nécessaires
-
-# Effectuer une ACP sur les données suréchantillonnées
-pca <- prcomp(all_train_enc_over_sampled, scale. = TRUE)
-
-# Obtenir les composantes principales
-components <- as.data.frame(pca$x[, 1:2])  # Sélectionner les 2 premières composantes principales
-components$Response <- as.factor(y_train)  # Ajouter la variable cible pour la couleur
-
-# Calculer la variance totale expliquée
-explained_variance <- sum(pca$sdev[1:2]^2) / sum(pca$sdev^2) * 100
-
-# Créer un graphique de dispersion
-ggplot(components, aes(x = PC1, y = PC2, color = Response)) +
-  geom_point(alpha = 0.7, size = 2) +
-  scale_color_manual(values = c("blue", "red")) +
-  labs(title = sprintf("Total Explained Variance: %.2f%%", explained_variance),
-       x = "Principal Component 1",
-       y = "Principal Component 2") +
-  theme_minimal()
-
-```
-![Importance](figures/my_plot_7-1.png)
 
 
 ## Normalisation des jeux de données 
@@ -545,12 +502,12 @@ X_test_transformed <- predict(scaler, all_test_enc)
 ```
 
 
-## Model Training and Evaluation
+# Entrainement et comparaison des modèles
 
 Dans cette section, nous avons entraîné plusieurs modèles d'apprentissage supervisé sur les données transformées et suréchantillonnées. L'objectif est de comparer leurs performances en termes de **ROC AUC**, une métrique appropriée pour les problèmes de classification déséquilibrés.
 
 
-### Modèles entraînés
+## Modèles entraînés
 
 Les modèles suivants ont été évalués :
 
@@ -625,7 +582,7 @@ print(model_results)
 ```
 
 
-```{r}
+```{r,echo=FALSE,  message=FALSE}
 # Créer une liste pour les résultats de validation croisée
 cv_results_array <- matrix(0,nrow = 5, ncol=length(results))
 
@@ -645,9 +602,9 @@ library(ggplot2)
 
 ggplot(cv_results_long, aes(x = Model, y = ROC, fill = Model)) +
   geom_boxplot() +
-  labs(title = "Comparison of ROC Results Across Models",
-       x = "Models",
-       y = "ROC Score") +
+  labs(title = "Comparaison des modèles",
+       x = "Modèles",
+       y = "Score ROC AUC") +
   theme_minimal() +
   theme(legend.position = "none")
 
@@ -682,7 +639,7 @@ Le modèle **XGBoost avec suréchantillonnage** est identifié comme le meilleur
 
 
 
-## Model Evaluation: XGBoost
+## Modèle Sélectionné : XGBoost
 
 Dans cette section, nous évaluons les performances du modèle **XGBoost**.
 
@@ -714,9 +671,6 @@ error_rate <- mean(y_scores != as.numeric(y_test))
 cat(sprintf("Classification Error: %.4f\n", error_rate))
 ```
 
-
-### Courbe ROC
-
 Le graphique ci-dessous représente la **courbe ROC** obtenue pour le modèle **XGBoost** sur l'ensemble de test.
 
 ```{r my_plot_8, fig.path='figures/', dev='png', echo=FALSE, include=FALSE, results='hide', message=FALSE, warning=FALSE}
@@ -731,7 +685,7 @@ plot(fpr, tpr, type = "l", col = "blue", lwd = 2, main = "XGBoost ROC Curve",
 abline(a = 0, b = 1, lty = 2, col = "black")  # Diagonale de base (auc = 0.5)
 
 ```
-![Importance](figures/my_plot_8-1.png)
+![](figures/my_plot_8-1.png)
 
 *Interprétation :*
 
@@ -821,8 +775,7 @@ library(gridExtra)
 grid.arrange(g1, g2, ncol = 2)
 ```
 
-![Importance](figures/my_plot_9_10-1.png)
-
+![](figures/my_plot_9_10-1.png)
 
 *Observations :*
 
@@ -865,7 +818,7 @@ shap.plot.summary(shap_long)
 
 
 ```
-![Importance](figures/my_plot_11-1.png)
+![](figures/my_plot_11-1.png)
 
 *Observations :*
 
