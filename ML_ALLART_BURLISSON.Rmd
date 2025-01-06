@@ -582,7 +582,7 @@ print(model_results)
 ```
 
 
-```{r,echo=FALSE,  message=FALSE}
+```{r, my_plot_C, fig.path='figures/', dev='png', echo=FALSE, include=FALSE, results='hide', message=FALSE, warning=FALSE}
 # Créer une liste pour les résultats de validation croisée
 cv_results_array <- matrix(0,nrow = 5, ncol=length(results))
 
@@ -609,6 +609,9 @@ ggplot(cv_results_long, aes(x = Model, y = ROC, fill = Model)) +
   theme(legend.position = "none")
 
 ```
+
+![](figures/my_plot_C-1.png)
+
 
 Les résultats moyens de la métrique **ROC AUC** sur l'ensemble d'entraînement sont les suivants :
 

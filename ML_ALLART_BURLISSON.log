@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.24)  6 JAN 2025 18:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.24)  6 JAN 2025 19:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -653,10 +653,10 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 (fancyhdr)                \setlength{\footskip}{18.39996pt}.
 
 [9]
-<ML_ALLART_BURLISSON_files/figure-latex/unnamed-chunk-9-1.pdf, id=131, 433.62pt x 216.81pt>
-File: ML_ALLART_BURLISSON_files/figure-latex/unnamed-chunk-9-1.pdf Graphic file (type pdf)
-<use ML_ALLART_BURLISSON_files/figure-latex/unnamed-chunk-9-1.pdf>
-Package pdftex.def Info: ML_ALLART_BURLISSON_files/figure-latex/unnamed-chunk-9-1.pdf  used on input line 614.
+<figures/my_plot_C-1.png, id=131, 433.62pt x 216.81pt>
+File: figures/my_plot_C-1.png Graphic file (type png)
+<use figures/my_plot_C-1.png>
+Package pdftex.def Info: figures/my_plot_C-1.png  used on input line 614.
 (pdftex.def)             Requested size: 433.63878pt x 216.81938pt.
 
 
@@ -672,13 +672,13 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 (fancyhdr)                Make it at least 18.39996pt, for example:
 (fancyhdr)                \setlength{\footskip}{18.39996pt}.
 
-[10 <./ML_ALLART_BURLISSON_files/figure-latex/unnamed-chunk-9-1.pdf>]
-<figures/my_plot_8-1.png, id=148, 433.62pt x 216.81pt>
+[10 <./figures/my_plot_C-1.png>]
+<figures/my_plot_8-1.png, id=143, 433.62pt x 216.81pt>
 File: figures/my_plot_8-1.png Graphic file (type png)
 <use figures/my_plot_8-1.png>
 Package pdftex.def Info: figures/my_plot_8-1.png  used on input line 695.
 (pdftex.def)             Requested size: 433.63878pt x 216.81938pt.
-<figures/my_plot_9_10-1.png, id=149, 433.62pt x 216.81pt>
+<figures/my_plot_9_10-1.png, id=144, 433.62pt x 216.81pt>
 File: figures/my_plot_9_10-1.png Graphic file (type png)
 <use figures/my_plot_9_10-1.png>
 Package pdftex.def Info: figures/my_plot_9_10-1.png  used on input line 722.
@@ -698,7 +698,7 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 (fancyhdr)                \setlength{\footskip}{18.39996pt}.
 
 [11 <./figures/my_plot_8-1.png>]
-<figures/my_plot_11-1.png, id=158, 433.62pt x 216.81pt>
+<figures/my_plot_11-1.png, id=154, 433.62pt x 216.81pt>
 File: figures/my_plot_11-1.png Graphic file (type png)
 <use figures/my_plot_11-1.png>
 Package pdftex.def Info: figures/my_plot_11-1.png  used on input line 769.
@@ -741,17 +741,17 @@ L3 programming layer <2024-11-02>
  ) 
 Here is how much of TeX's memory you used:
  11977 strings out of 475290
- 189147 string characters out of 5767184
+ 188864 string characters out of 5767184
  588350 words of memory out of 5000000
  34581 multiletter control sequences out of 15000+600000
  612726 words of font info for 81 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  89i,12n,93p,1081b,593s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Users/FLOWUP/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/FLOWUP/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/FLOWUP/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/Users/FLOWUP/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/FLOWUP/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/FLOWUP/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/FLOWUP/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/Users/FLOWUP/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmro10.pfb><c:/Users/FLOWUP/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/FLOWUP/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/Users/FLOWUP/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><c:/Users/FLOWUP/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
-Output written on ML_ALLART_BURLISSON.pdf (14 pages, 382941 bytes).
+Output written on ML_ALLART_BURLISSON.pdf (14 pages, 382199 bytes).
 PDF statistics:
- 323 PDF objects out of 1000 (max. 8388607)
- 262 compressed objects within 3 object streams
+ 319 PDF objects out of 1000 (max. 8388607)
+ 258 compressed objects within 3 object streams
  70 named destinations out of 1000 (max. 500000)
  198 words of extra memory for PDF output out of 10000 (max. 10000000)
 
