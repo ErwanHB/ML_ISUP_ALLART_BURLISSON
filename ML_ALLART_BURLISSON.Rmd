@@ -70,7 +70,7 @@ library(MASS)
 
 Dans le cadre de ce projet de Master 2 à l'ISUP, nous avons pour objectif de développer un modèle prédictif pour une compagnie d’assurance. Ce modèle devra déterminer la probabilité qu'un client ayant souscrit une assurance santé s'intéresse également à une assurance véhicule. Cette prédiction permettra à la compagnie d’optimiser ses stratégies de communication et de maximiser ses revenus en ciblant les clients les plus susceptibles de souscrire à une nouvelle assurance.
 
-Les données utilisées dans ce projet proviennent de Kaggle, où elles ont été initialement proposées dans le cadre d’une compétition intitulée **Health Insurance Cross Sell Prediction** (https://www.kaggle.com/datasets/anmolkumar/health-insurance-cross-sell-prediction). La compétition avait pour objectif de prédire si un client existant pourrait être intéressé par une assurance véhicule, en utilisant les informations démographiques, les caractéristiques des véhicules et les détails de la police d’assurance.
+Les données utilisées dans ce projet proviennent de Kaggle, où elles ont été initialement proposées dans le cadre d’une compétition intitulée **Health Insurance Cross Sell Prediction** (https://www.kaggle.com/datasets/anmolkumar/health-insurance-cross-sell-prediction). La compétition avait pour objectif de prédire si **Un client actuel serait-il intéressé par une assurance véhicule ?** En utilisant les informations des clients.
 
 ## Critère de notation
 
@@ -79,11 +79,6 @@ Le critère de performance utilisé pour cette compétition était le **score RO
 ## Contexte des données
 
 Les données fournies ne précisent pas le pays d’origine de l’assureur ou du portefeuille étudié. Cela limite certaines interprétations concernant le contexte socio-économique ou réglementaire, mais cela ne remet pas en question l’objectif d’analyse et de modélisation. Nous supposerons donc que les informations données sont génériques et applicables à un contexte international.
-
-
-## Objectif du projet
-
-L’objectif principal est de construire un modèle prédictif en utilisant des données démographiques, des informations sur les véhicules, et des données de politiques d’assurance. Ce modèle doit répondre à la question : **Un client actuel serait-il intéressé par une assurance véhicule ?**
 
 # Description des données
 
@@ -157,7 +152,7 @@ Ce projet est donc une **tâche de classification binaire**, où l'objectif est 
 
 
 
-```{r my_plot_1, fig.path='figures/', dev='png', echo=FALSE, include=FALSE, results='hide', message=FALSE, warning=FALSE}
+```{r my_plot_1, fig.path='figures/', dev='png',echo=FALSE, include=FALSE, results='hide',  message=FALSE, warning=FALSE}
 count_plot(data, "Response", "Reponse du client")
 ```
 ![](figures/my_plot_1-1.png)
@@ -275,7 +270,7 @@ ggplot(data, aes(x = Vehicle_Damage, y = Age, fill = Gender)) +
 ![](figures/my_plot_5-1.png)
 # Prétraitement des Données
 
-## Detection de valeurs aberrantes et manquantes
+## Détection de valeurs aberrantes et manquantes
 
 *Definition of Outliers*
 
@@ -416,7 +411,7 @@ Le graphique ci-dessous montre l'importance des variables calculée à l’aide 
 - Les variables comme **`Vintage`** et **`Driving_License`** ont des scores très faibles et pourraient être supprimées sans affecter les performances du modèle.
 
 
-```{r my_plot_6, fig.path='figures/', dev='png', echo=FALSE, include=FALSE, results='hide', message=FALSE, warning=FALSE}
+```{r my_plot_6, fig.path='figures/', dev='png',echo=FALSE, include=FALSE, results='hide',  message=FALSE, warning=FALSE, fig.width=9, fig.height=2.5}
 # Fusionner les données et cible pour FSelector
 train_data <- cbind(all_train_enc, Response = data_train$Response)
 
@@ -443,7 +438,7 @@ ggplot(data_plot, aes(x = reorder(Attribute, attr_importance), y = attr_importan
 
 ![](figures/my_plot_6-1.png)
 
-## Suréchantillonage avec ROSE
+## Suréchantillonnage avec ROSE
 
 Dans notre projet, nous avons observé un déséquilibre dans la distribution de la variable cible **`Response`**. Ce déséquilibre peut affecter les performances des modèles prédictifs, car ils risquent de privilégier la classe majoritaire. Pour résoudre ce problème, nous appliquons un **suréchantillonnage** à l'aide du package **ROSE**.
 
@@ -493,7 +488,7 @@ Nous avons utilisé la bibliothèque **caret** pour appliquer une normalisation 
 ```{r}
 # Charger la bibliothèque caret pour la normalisation
 
-# Entraîner le normaliseur (StandardScaler en Python)
+# Entraîner le normaliseur
 scaler <- preProcess(all_train_enc, method = c("center", "scale"))
 
 # Transformer les ensembles de données
@@ -520,7 +515,7 @@ GBM construit un ensemble de modèles faibles (typiquement des arbres de décisi
 4. **XGBoost sans suréchantillonnage** : XGBoost est une version optimisée de GBM qui utilise des techniques avancées (régularisation, gestion efficace de la mémoire) pour améliorer la vitesse et les performances. Dans cette version, l’algorithme est entraîné sur les données originales, non équilibrées, ce qui peut conduire à un biais en cas de classes déséquilibrées.
 5. **XGBoost avec suréchantillonnage** : Cette version de XGBoost est entraînée sur des données équilibrées à l’aide de la méthode ROSE (Random OverSampling Examples), qui crée des échantillons synthétiques pour la classe minoritaire. Cela vise à atténuer les effets du déséquilibre des classes et à améliorer la performance sur la classe minoritaire.
 
-Tous Tous les modèles sont entraînés en utilisant la fonction `caret::train()`. Et on utilise la méthode de validation croisée (5-fold) pour évaluer les performances des modèles avec comme métrique principale : **ROC AUC**. 
+Tous les modèles sont entraînés en utilisant la fonction `caret::train()`. Et on utilise la méthode de validation croisée (5-fold) pour évaluer les performances des modèles avec comme métrique principale : **ROC AUC**. 
 
 
 ```{r,cache=TRUE,echo=FALSE, include=FALSE, results='hide', message=FALSE, warning=FALSE}
