@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.24)  6 JAN 2025 19:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.24)  7 JAN 2025 17:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -527,7 +527,7 @@ LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 18
 (c:/Users/FLOWUP/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-<figures/my_plot_1-1.png, id=64, 433.62pt x 216.81pt>
+<figures/my_plot_1-1.png, id=66, 433.62pt x 216.81pt>
 File: figures/my_plot_1-1.png Graphic file (type png)
 <use figures/my_plot_1-1.png>
 Package pdftex.def Info: figures/my_plot_1-1.png  used on input line 218.
@@ -547,10 +547,10 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 (fancyhdr)                \setlength{\footskip}{18.39996pt}.
 
 [3{c:/Users/FLOWUP/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc} <./figures/my_plot_1-1.png>]
-<figures/my_plot_3-1.png, id=74, 433.62pt x 216.81pt>
+<figures/my_plot_3-1.png, id=76, 433.62pt x 216.81pt>
 File: figures/my_plot_3-1.png Graphic file (type png)
 <use figures/my_plot_3-1.png>
-Package pdftex.def Info: figures/my_plot_3-1.png  used on input line 305.
+Package pdftex.def Info: figures/my_plot_3-1.png  used on input line 300.
 (pdftex.def)             Requested size: 433.63878pt x 216.81938pt.
 
 
@@ -566,31 +566,16 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 (fancyhdr)                Make it at least 18.39996pt, for example:
 (fancyhdr)                \setlength{\footskip}{18.39996pt}.
 
-[4]
-<figures/my_plot_4-1.png, id=83, 433.62pt x 216.81pt>
+[4 <./figures/my_plot_3-1.png>]
+<figures/my_plot_4-1.png, id=86, 433.62pt x 216.81pt>
 File: figures/my_plot_4-1.png Graphic file (type png)
 <use figures/my_plot_4-1.png>
-Package pdftex.def Info: figures/my_plot_4-1.png  used on input line 338.
+Package pdftex.def Info: figures/my_plot_4-1.png  used on input line 324.
 (pdftex.def)             Requested size: 433.63878pt x 216.81938pt.
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.80502pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.80502pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-0.80502pt}.
-
-
-Package fancyhdr Warning: \footskip is too small (0.0pt): 
-(fancyhdr)                Make it at least 18.39996pt, for example:
-(fancyhdr)                \setlength{\footskip}{18.39996pt}.
-
-[5 <./figures/my_plot_3-1.png>]
-<figures/my_plot_5-1.png, id=91, 433.62pt x 216.81pt>
+<figures/my_plot_5-1.png, id=87, 433.62pt x 216.81pt>
 File: figures/my_plot_5-1.png Graphic file (type png)
 <use figures/my_plot_5-1.png>
-Package pdftex.def Info: figures/my_plot_5-1.png  used on input line 364.
+Package pdftex.def Info: figures/my_plot_5-1.png  used on input line 350.
 (pdftex.def)             Requested size: 433.63878pt x 216.81938pt.
 
 
@@ -606,7 +591,7 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 (fancyhdr)                Make it at least 18.39996pt, for example:
 (fancyhdr)                \setlength{\footskip}{18.39996pt}.
 
-[6 <./figures/my_plot_4-1.png> <./figures/my_plot_5-1.png>]
+[5 <./figures/my_plot_4-1.png>]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -620,13 +605,27 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 (fancyhdr)                Make it at least 18.39996pt, for example:
 (fancyhdr)                \setlength{\footskip}{18.39996pt}.
 
-[7{c:/Users/FLOWUP/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/Users/FLOWUP/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Users/FLOWUP/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
-<figures/my_plot_6-1.png, id=111, 433.62pt x 216.81pt>
+[6{c:/Users/FLOWUP/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/Users/FLOWUP/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Users/FLOWUP/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc} <./figures/my_plot_5-1.png>]
+<figures/my_plot_6-1.png, id=104, 650.43pt x 180.675pt>
 File: figures/my_plot_6-1.png Graphic file (type png)
 <use figures/my_plot_6-1.png>
-Package pdftex.def Info: figures/my_plot_6-1.png  used on input line 489.
-(pdftex.def)             Requested size: 433.63878pt x 216.81938pt.
+Package pdftex.def Info: figures/my_plot_6-1.png  used on input line 500.
+(pdftex.def)             Requested size: 469.76817pt x 130.49115pt.
 
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.80502pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.80502pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-0.80502pt}.
+
+
+Package fancyhdr Warning: \footskip is too small (0.0pt): 
+(fancyhdr)                Make it at least 18.39996pt, for example:
+(fancyhdr)                \setlength{\footskip}{18.39996pt}.
+
+[7]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -641,24 +640,10 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 (fancyhdr)                \setlength{\footskip}{18.39996pt}.
 
 [8 <./figures/my_plot_6-1.png>]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.80502pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.80502pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-0.80502pt}.
-
-
-Package fancyhdr Warning: \footskip is too small (0.0pt): 
-(fancyhdr)                Make it at least 18.39996pt, for example:
-(fancyhdr)                \setlength{\footskip}{18.39996pt}.
-
-[9]
-<figures/my_plot_C-1.png, id=129, 433.62pt x 216.81pt>
+<figures/my_plot_C-1.png, id=120, 433.62pt x 216.81pt>
 File: figures/my_plot_C-1.png Graphic file (type png)
 <use figures/my_plot_C-1.png>
-Package pdftex.def Info: figures/my_plot_C-1.png  used on input line 605.
+Package pdftex.def Info: figures/my_plot_C-1.png  used on input line 616.
 (pdftex.def)             Requested size: 433.63878pt x 216.81938pt.
 
 
@@ -674,17 +659,32 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 (fancyhdr)                Make it at least 18.39996pt, for example:
 (fancyhdr)                \setlength{\footskip}{18.39996pt}.
 
-[10 <./figures/my_plot_C-1.png>]
-<figures/my_plot_8-1.png, id=141, 433.62pt x 216.81pt>
+[9 <./figures/my_plot_C-1.png>]
+<figures/my_plot_8-1.png, id=133, 433.62pt x 216.81pt>
 File: figures/my_plot_8-1.png Graphic file (type png)
 <use figures/my_plot_8-1.png>
-Package pdftex.def Info: figures/my_plot_8-1.png  used on input line 686.
+Package pdftex.def Info: figures/my_plot_8-1.png  used on input line 697.
 (pdftex.def)             Requested size: 433.63878pt x 216.81938pt.
-<figures/my_plot_9_10-1.png, id=142, 433.62pt x 216.81pt>
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.80502pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.80502pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-0.80502pt}.
+
+
+Package fancyhdr Warning: \footskip is too small (0.0pt): 
+(fancyhdr)                Make it at least 18.39996pt, for example:
+(fancyhdr)                \setlength{\footskip}{18.39996pt}.
+
+[10]
+<figures/my_plot_9_10-1.png, id=144, 505.89pt x 433.62pt>
 File: figures/my_plot_9_10-1.png Graphic file (type png)
 <use figures/my_plot_9_10-1.png>
-Package pdftex.def Info: figures/my_plot_9_10-1.png  used on input line 713.
-(pdftex.def)             Requested size: 433.63878pt x 216.81938pt.
+Package pdftex.def Info: figures/my_plot_9_10-1.png  used on input line 724.
+(pdftex.def)             Requested size: 469.76265pt x 402.65372pt.
 
 
 
@@ -700,12 +700,6 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 (fancyhdr)                \setlength{\footskip}{18.39996pt}.
 
 [11 <./figures/my_plot_8-1.png>]
-<figures/my_plot_11-1.png, id=152, 433.62pt x 216.81pt>
-File: figures/my_plot_11-1.png Graphic file (type png)
-<use figures/my_plot_11-1.png>
-Package pdftex.def Info: figures/my_plot_11-1.png  used on input line 760.
-(pdftex.def)             Requested size: 433.63878pt x 216.81938pt.
-
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -720,6 +714,19 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 (fancyhdr)                \setlength{\footskip}{18.39996pt}.
 
 [12 <./figures/my_plot_9_10-1.png (PNG copy)>]
+<figures/my_plot_11-1.png, id=158, 433.62pt x 216.81pt>
+File: figures/my_plot_11-1.png Graphic file (type png)
+<use figures/my_plot_11-1.png>
+Package pdftex.def Info: figures/my_plot_11-1.png  used on input line 777.
+(pdftex.def)             Requested size: 433.63878pt x 216.81938pt.
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.80502pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.80502pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-0.80502pt}.
 
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
@@ -742,18 +749,18 @@ L3 programming layer <2024-11-02>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 11974 strings out of 475290
- 188828 string characters out of 5767184
- 588304 words of memory out of 5000000
- 34579 multiletter control sequences out of 15000+600000
+ 11975 strings out of 475290
+ 188886 string characters out of 5767184
+ 588346 words of memory out of 5000000
+ 34580 multiletter control sequences out of 15000+600000
  612726 words of font info for 81 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 89i,12n,93p,1081b,591s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 89i,12n,93p,1081b,547s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Users/FLOWUP/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/FLOWUP/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/FLOWUP/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/Users/FLOWUP/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/FLOWUP/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/FLOWUP/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/FLOWUP/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/Users/FLOWUP/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmro10.pfb><c:/Users/FLOWUP/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/FLOWUP/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/Users/FLOWUP/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><c:/Users/FLOWUP/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
-Output written on ML_ALLART_BURLISSON.pdf (14 pages, 381758 bytes).
+Output written on ML_ALLART_BURLISSON.pdf (14 pages, 393447 bytes).
 PDF statistics:
- 314 PDF objects out of 1000 (max. 8388607)
- 253 compressed objects within 3 object streams
+ 318 PDF objects out of 1000 (max. 8388607)
+ 257 compressed objects within 3 object streams
  69 named destinations out of 1000 (max. 500000)
- 190 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 198 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -70,7 +70,7 @@ library(MASS)
 
 Dans le cadre de ce projet de Master 2 à l'ISUP, nous avons pour objectif de développer un modèle prédictif pour une compagnie d’assurance. Ce modèle devra déterminer la probabilité qu'un client ayant souscrit une assurance santé s'intéresse également à une assurance véhicule. Cette prédiction permettra à la compagnie d’optimiser ses stratégies de communication et de maximiser ses revenus en ciblant les clients les plus susceptibles de souscrire à une nouvelle assurance.
 
-Les données utilisées dans ce projet proviennent de Kaggle, où elles ont été initialement proposées dans le cadre d’une compétition intitulée **Health Insurance Cross Sell Prediction** (https://www.kaggle.com/datasets/anmolkumar/health-insurance-cross-sell-prediction). La compétition avait pour objectif de prédire si **Un client actuel serait-il intéressé par une assurance véhicule ?** En utilisant les informations des clients.
+Les données utilisées dans ce projet proviennent de Kaggle, où elles ont été initialement proposées dans le cadre d’une compétition intitulée **Health Insurance Cross Sell Prediction** (https://www.kaggle.com/datasets/anmolkumar/health-insurance-cross-sell-prediction). La compétition avait pour objectif de prédire si **un client actuel serait-il intéressé par une assurance véhicule ?** En utilisant les informations des clients.
 
 ## Critère de notation
 
@@ -170,11 +170,9 @@ Ces techniques sont utilisées pour ajuster la répartition des classes dans un 
 - **Suréchantillonnage** : Augmente le nombre d'exemples de la classe minoritaire en dupliquant des observations ou en générant de nouvelles données synthétiques. Par exemple, l'algorithme SMOTE (Synthetic Minority Oversampling Technique) est souvent utilisé.
 - **Sous-échantillonnage** : Réduit le nombre d'exemples de la classe majoritaire pour équilibrer les classes, mais cela peut entraîner une perte d'informations.
 
-Ces approches peuvent aider à améliorer la performance des modèles en réduisant l'impact du déséquilibre des classes sur les prédictions.
-
 *Approche proposée*
 
-Pour notre analyse, nous examinerons l'impact de ces techniques sur les performances du modèle. En particulier, nous évaluerons si le **suréchantillonnage** ou le **sous-échantillonnage** permet d'augmenter la précision globale ou la sensibilité aux prédictions de la classe minoritaire.
+Pour notre analyse, nous examinerons si l'impact du  **suréchantillonnage**  permet d'augmenter la précision globale ou la sensibilité aux prédictions de la classe minoritaire.
 
 
 ### Etude de la variable : Gender
@@ -220,20 +218,11 @@ data$AgeClass <- cut(data$Age, breaks = bins, labels = labels, include.lowest = 
 *Observations initiales*
 
 Certaines tranches d’âge semblent montrer un plus grand intérêt pour l’assurance véhicule, tandis que d’autres en montrent moins. Cela pourrait indiquer une tendance ou un comportement spécifique à certaines catégories démographiques. Par exemple :
+
 - Les clients âgés de **40-49 ans** et **70-79 ans** semblent avoir un intérêt notable.
 - Les jeunes adultes (20-29 ans) pourraient être moins intéressés, mais cela nécessitera une analyse plus approfondie.
 
 *Groupement des âges*
-
-Pour cette analyse, les âges ont été regroupés en classes comme suit :
-
-| **Âge** | **Tranche d'âge (AgeClass)** |
-|---------|-------------------------------|
-| 44      | 40-49                        |
-| 76      | 70-79                        |
-| 47      | 40-49                        |
-| 21      | 20-29                        |
-| 29      | 20-29                        |
 
 Cette classification permet d’identifier les tendances globales tout en simplifiant l’analyse.
 
@@ -268,6 +257,7 @@ ggplot(data, aes(x = Vehicle_Damage, y = Age, fill = Gender)) +
 ```
 
 ![](figures/my_plot_5-1.png)
+
 # Prétraitement des Données
 
 ## Détection de valeurs aberrantes et manquantes
@@ -275,6 +265,7 @@ ggplot(data, aes(x = Vehicle_Damage, y = Age, fill = Gender)) +
 *Definition of Outliers*
 
 En statistique, un **outlier** (ou valeur aberrante) est un point de données qui diffère significativement des autres observations. Les outliers peuvent apparaître pour plusieurs raisons :
+
 - **Variabilité dans les mesures** : Certaines valeurs extrêmes peuvent être des cas valides, mais inhabituels.
 - **Erreurs expérimentales** : Ces erreurs peuvent provenir de problèmes de saisie ou de mesure et doivent souvent être corrigées ou exclues.
 
@@ -283,11 +274,13 @@ Les outliers peuvent causer de sérieux problèmes dans les analyses statistique
 *Nous allons utilisé la méthode "Using Interquartile Range (IQR)" pour la détection de valeurs aberrantes*
 
 L’**intervalle interquartile (IQR)** est une méthode couramment utilisée pour détecter les outliers dans un jeu de données. Cette méthode repose sur les quartiles :
+
 - **Q1** : Le 1er quartile représente la valeur sous laquelle se trouve 25 % des données.
 - **Q3** : Le 3ème quartile représente la valeur sous laquelle se trouve 75 % des données.
 - **IQR** : Calculé comme la différence entre Q3 et Q1 (\(IQR = Q3 - Q1\)).
 
 Un point est considéré comme un **outlier** s’il se situe :
+
 - En dessous de \(Q1 - 1.5 \times IQR\),
 - Au-dessus de \(Q3 + 1.5 \times IQR\).
 
@@ -343,7 +336,7 @@ dim(data)
 - La variable **`Annual_Premium`** contient **10 320 outliers** détectés à l'aide de la méthode de l'intervalle interquartile (IQR).
 - Ces valeurs aberrantes pourraient influencer négativement les résultats de l'analyse et les performances des modèles prédictifs.
 
-**Action entreprise** : Pour garantir la robustesse des analyses et des modèles, nous avons décidé de **supprimer les lignes contenant des valeurs aberrantes** dans la variable `Annual_Premium`. Cette approche permet de travailler avec des données plus homogènes tout en réduisant l'impact des valeurs extrêmes sur les résultats.
+Pour garantir la robustesse des analyses et des modèles, nous avons décidé de **supprimer les lignes contenant des valeurs aberrantes** dans la variable `Annual_Premium`. Cette approche permet de travailler avec des données plus homogènes tout en réduisant l'impact des valeurs extrêmes sur les résultats.
 
 
 ## Division en ensembles d'entraînement et de test et encodage des variables catégoriques
@@ -642,7 +635,7 @@ Le modèle **XGBoost avec suréchantillonnage** est identifié comme le meilleur
 Dans cette section, nous évaluons les performances du modèle **XGBoost**.
 
 
-### Résultats de l'évaluation
+### Résultats de l'évaluation (sur l'ensemble de test)
 
 **ROC AUC** : La valeur de **ROC AUC** obtenue est de **0.7553**. 
    
@@ -761,38 +754,125 @@ g2=ggplot(summary_df, aes(x = truth, y = count, fill = outcome)) +
   labs(
     title = "Prédictions",
     x = "Classe réelle",
-    y = "Nombre de prédictions",
+    y = "Nombre",
     fill = "Résultat"
   ) +
   scale_fill_manual(values = c("Correct" = "blue", "Incorrect" = "red")) +
   theme_minimal()
 ```
 
-```{r my_plot_9_10, fig.path='figures/', dev='png', echo=FALSE, include=FALSE, results='hide', message=FALSE, warning=FALSE}
+
+
+
+
+
+
+```{r my_plot_9_test, fig.path='figures/', dev='png', echo=FALSE, include=FALSE, results='hide', message=FALSE, warning=FALSE}
+# Installer ggplot2 si nécessaire
+if (!requireNamespace("ggplot2", quietly = TRUE)) install.packages("ggplot2")
+
+# Chargement des bibliothèques nécessaires
+library(ggplot2)
+library(dplyr)
+library(yardstick)
+
+# Harmoniser les niveaux des facteurs
+y <- factor(y_test, levels = c("0", "1"))
+predicted_class <- factor(y_scores, levels = c("0", "1"))
+
+# Créer un data frame contenant les vérités terrain et les prédictions
+df <- data.frame(truth = y, prediction = predicted_class)
+
+# Calculer la matrice de confusion
+conf_matrix <- conf_mat(df, truth = truth, estimate = prediction)
+
+# Extraire les données de la matrice
+conf_matrix_data <- as.data.frame(conf_matrix$table)
+
+# Normaliser pour afficher des proportions
+conf_matrix_data <- conf_matrix_data %>%
+  group_by(Truth) %>%
+  mutate(Percent = Freq / sum(Freq))
+
+# Plot de la matrice de confusion
+g3=ggplot(conf_matrix_data, aes(x = Prediction, y = Truth, fill = Percent)) +
+  geom_tile() +
+  geom_text(aes(label = sprintf("%.2f", Percent)), color = "white", size = 5) +
+  scale_fill_gradient(low = "white", high = "darkgreen") +
+  labs(title = "Matrice de confusion", x = "Prédiction", y = "Vérité terrain") +
+  theme_minimal()
+
+
+
+```
+
+```{r my_plot_10_test, fig.path='figures/', dev='png', echo=FALSE, include=FALSE, results='hide', message=FALSE, warning=FALSE}
+# Créer un data frame contenant les vérités terrain et les prédictions
+df <- data.frame(truth = y_test, prediction = predicted_class)
+
+# Créer un tableau résumant les prédictions correctes et incorrectes
+summary_df <- df %>%
+  mutate(outcome = case_when(
+    truth == prediction ~ "Correct",
+    truth != prediction ~ "Incorrect"
+  )) %>%
+  group_by(truth, outcome) %>%
+  summarise(count = n(), .groups = "drop")
+
+# Graphique à barres empilées
+g4=ggplot(summary_df, aes(x = truth, y = count, fill = outcome)) +
+  geom_bar(stat = "identity") +  # Les barres sont empilées par défaut
+  labs(
+    title = "Prédictions",
+    x = "Classe réelle",
+    y = "Nombre",
+    fill = "Résultat"
+  ) +
+  scale_fill_manual(values = c("Correct" = "blue", "Incorrect" = "red")) +
+  theme_minimal()
+```
+
+
+
+```{r my_plot_9_10, fig.path='figures/', dev='png', echo=FALSE, include=FALSE, results='hide', message=FALSE, warning=FALSE, fig.width=7, fig.height=6}
 library(gridExtra)
-grid.arrange(g1, g2, ncol = 2)
+library(grid)
+
+title_top <- textGrob("Avec l'ensemble d'entrainement", gp = gpar(fontsize = 12, fontface = "bold"))
+title_middle <- textGrob("Avec l'ensemble de test", gp = gpar(fontsize = 12, fontface = "bold"))
+
+# Arrangement avec titres
+grid.arrange(
+  title_top,                         # Titre au-dessus de la première ligne
+  arrangeGrob(g1, g2, ncol = 2),     # Première ligne de graphiques
+  title_middle,                      # Titre entre les deux lignes
+  arrangeGrob(g3, g4, ncol = 2),     # Deuxième ligne de graphiques
+  nrow = 4,                          # Nombre total de lignes
+  heights = c(0.2, 1, 0.2, 1)        # Proportions des hauteurs des lignes
+)
 ```
 
 ![](figures/my_plot_9_10-1.png)
 
 *Observations :*
 
-- Dans la matrice de confusion :
+- Dans la matrice de confusion sur l'ensemble d'entrainement :
   - **Classe `0` (Non intéressé)** :
     - **94 %** des instances ont été correctement classées.
     - **6 %** des instances ont été incorrectement classées comme `1`.
   - **Classe `1` (Intéressé)** :
     - **98 %** des instances ont été correctement classées.
-    - **2 %** des instances ont été incorrectement classées comme `0`.*
+    - **2 %** des instances ont été incorrectement classées comme `0`.
 - Nous retrouvons les mêmes informations avec le nombre d'individus plutôt que des pourcentages dans le graphique de droite
 
+Pour l'ensemble de test, les résultats sont bien moins convaincants, avec 49 % des 0 prédits comme des 1, mais 100 % des 1 correctement prédits. Cela pourrait s'expliquer par le fait que la base de données de test n'est pas équilibrée entre les 1 et les 0, contrairement à la base d'entraînement.
 
 ### SHAP Analysis: Feature Importance and Impact
 
 Les valeurs **SHAP** (SHapley Additive exPlanations) sont utilisées pour expliquer l'impact de chaque caractéristique sur les prédictions du modèle. Cette approche fournit une interprétation globale et locale des modèles complexes, tels que **XGBoost**.
 
 
-```{r my_plot_11, fig.path='figures/', dev='png', echo=FALSE, echo=FALSE, include=FALSE, results='hide', message=FALSE, warning=FALSE }
+```{r my_plot_11, fig.path='figures/', dev='png', cache=TRUE, echo=FALSE, include=FALSE, results='hide', message=FALSE, warning=FALSE }
 library(caret)
 library(xgboost)
 library(SHAPforxgboost)
@@ -838,8 +918,6 @@ L'analyse SHAP fournit une compréhension approfondie de l'impact des caractéri
 1. **`Age`, `Policy_Sales_Channel`, et `Vehicle_Damage`** sont les caractéristiques les plus influentes.
 2. L'interprétation des valeurs SHAP peut guider des ajustements futurs, comme le raffinement des caractéristiques ou l'exclusion des variables peu informatives.
 
-Les valeurs SHAP jouent un rôle clé dans l'interprétabilité des modèles complexes et permettent de valider les décisions prises par le modèle.
-
 
 # Conclusion 
 
@@ -864,7 +942,7 @@ Dans le cadre de ce projet, nous avons développé un modèle prédictif visant 
 
 2. **Interprétation des caractéristiques** :
    - L'analyse des valeurs **SHAP** a montré que des variables telles que **`Age`**, **`Policy_Sales_Channel`**, et **`Vehicle_Damage`** étaient les plus influentes dans les prédictions.
-   - Des caractéristiques moins influentes, comme **`Gender`** ou **`AgeClass`**, pourraient être exclues dans de futures itérations.
+   - Des caractéristiques moins influentes, comme **`Vintage`** ou **`Region_Code`**, pourraient être exclues dans de futures itérations.
 
 3. **Gestion du déséquilibre des classes** :
    - L'utilisation de ROSE a permis d'équilibrer les classes, améliorant ainsi la performance des modèles, notamment pour la classe minoritaire (`1` - clients intéressés).
@@ -877,8 +955,7 @@ Dans le cadre de ce projet, nous avons développé un modèle prédictif visant 
 
 2. **Perspectives** :
    - Explorer des techniques d'optimisation des hyperparamètres, telles que l'optimisation bayésienne, pour améliorer davantage les performances des modèles.
-   - Tester d'autres algorithmes avancés, comme les réseaux neuronaux, pour des comparaisons supplémentaires.
-   - Intégrer des données contextuelles (par exemple, des informations sur les clients ou les politiques d’assurance) pour enrichir le modèle.
+   - Intégrer des données contextuelles (par exemple, plus d'informations sur les clients ou sur les politiques d’assurance) pour enrichir le modèle.
 
 ---
 
